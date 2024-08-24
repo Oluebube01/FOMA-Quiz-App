@@ -226,6 +226,8 @@ body{
     font-weight: 500;
     font-size: 20px;
     color: var(--secondary-text-color);
+    text-align: center;
+    align-items: center;
 }
 .quiz_box section .que_text{
     font-size: 25px;
@@ -390,7 +392,7 @@ footer .next_btn:hover{
     .info_box,
     .quiz_box,
     .result_box{
-        width: 80%;
+        width: 85%;
         flex-wrap: wrap;
     }
     .display{
@@ -399,4 +401,6 @@ footer .next_btn:hover{
     .foma{
         left: 40%;
     }
+    footer .next_btn{
+        font-size: 12px;
 }

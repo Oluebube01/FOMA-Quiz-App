@@ -398,6 +398,9 @@ footer .next_btn:hover{
     .display{
         display: none;
     }
+    .quiz_box section .which_section span{
+        font-size: 18px;
+    }
     .foma{
         left: 40%;
     }

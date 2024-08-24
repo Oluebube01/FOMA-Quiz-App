@@ -21,8 +21,6 @@ Users should be able to:
 
 - Live Site URL: ((https://foma-quiz-app.vercel.app/))
 
-## My process
-
 ### Built with
 
 - Semantic HTML5 markup

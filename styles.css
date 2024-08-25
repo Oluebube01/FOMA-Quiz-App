@@ -407,3 +407,9 @@ footer .next_btn:hover{
     footer .next_btn{
         font-size: 12px;
 }
+@media screen and (max-width:450px){
+    .foma{
+        left: 30%;
+    }
+.
+}

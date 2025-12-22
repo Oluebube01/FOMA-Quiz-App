@@ -1,89 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz App / FOMA</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/quantum.js"></script>
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/quantum.js"
+    ></script>
+  </head>
+  <body>
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
     <!-- Start Quiz Button -->
     <div class="start_btn">
-        <button>Start Quiz</button>
+      <button>Start Quiz</button>
     </div>
+
     <div id="spinner">
-        <l-quantum size="45" speed="1.75" color="white"></l-quantum>
+      <l-quantum size="45" speed="1.75" color="white"></l-quantum>
     </div>
+
     <!-- Info Box -->
     <div class="info_box">
-        <div class="info_title">
-            ⚠ <span class="rule"> All rules valid for this Quiz </span>
+      <div class="info_title">
+        <span>🚀 Game Setup</span>
+      </div>
+      <div class="info_list">
+        <div class="input_group">
+          <label for="nickname">Nickname</label>
+          <input
+            type="text"
+            id="nickname"
+            placeholder="Enter your nickname..."
+            autocomplete="off"
+          />
         </div>
-        <div class="info_list">
-            <div class="info">1. You will have only <span>20 seconds</span> per each question</div>
-            <div class="info">2. Once you select your answer, you can't reselect.</div>
-            <div class="info">3. You can't select any option once time goes off.</div>
-            <div class="info">4. You can't exit from the quiz while you're playing.</div>
-            <div class="info">5. You'll get points on the basis of your correct answers.</div>
-            <div class="info">6. The quiz is divided into 5 sections, 10 questions each. Total of 50 questions.</div>
-            <div class="info">7. Sections will be based on the following topics: <br>
-                i. Food 🍘 <br> ii. Science and Technology 👨‍💻 <br> iii. Nature 🌴 <br> iv. Health 👩‍⚕️ <br> v. Entertainment 🎵 </div>
+        <div class="input_group">
+          <label for="question_count">Number of Questions</label>
+          <select id="question_count">
+            <option value="15">15 Questions</option>
+            <option value="30">30 Questions</option>
+            <option value="45">45 Questions</option>
+            <option value="60">60 Questions</option>
+          </select>
         </div>
-        <div class="buttons">
-            <button class="quit">Exit Quiz</button>
-            <button class="restart">Continue</button>
+        <div class="rules_summary">
+          <p><i class="fas fa-clock"></i> 20s per question</p>
+          <p><i class="fas fa-ban"></i> No backtracking</p>
         </div>
+      </div>
+      <div class="buttons">
+        <button class="quit">Exit</button>
+        <button class="restart">Start Game</button>
+      </div>
     </div>
+
     <!-- Quiz Box -->
     <div class="quiz_box">
-        <header>
-            <div class="title"><span class="big-name">FOMA</span> Quiz App<span class="display">lication</span> 😍 </div>
-            <div class="timer">
-                <div class="time_text">Time left</div>
-                <div class="timer_sec"></div>
-            </div>
-            <div class="time_line"></div>
-        </header>
-        <section>
-            <div class="which_section">
-            </div>
-            <div class="que_text">
-            </div>
-            <div class="option_list">
-            </div>
-        </section>
-        <!-- quiz box footer -->
-        <footer>
-            <div class="total_que">
-            </div>
-            <button class="next_btn">Next Question</button>
-        </footer>
+      <header>
+        <div class="title">
+          <span class="badg user_badge"
+            ><i class="fas fa-user"></i>
+            <span id="user_span">Player</span></span
+          >
+        </div>
+        <div class="timer">
+          <div class="time_text">Time left</div>
+          <div class="timer_sec">20</div>
+        </div>
+        <div class="time_line"></div>
+        <button class="stop_btn" title="Stop Game">
+          <i class="fas fa-power-off"></i>
+        </button>
+      </header>
+      <div class="score_board">
+        <span>Score: <span id="current_score">0</span></span>
+      </div>
+      <section>
+        <div class="which_section"></div>
+        <div class="que_text"></div>
+        <div class="option_list"></div>
+      </section>
+      <!-- quiz box footer -->
+      <footer>
+        <div class="total_que"></div>
+        <button class="next_btn">Next Question</button>
+      </footer>
     </div>
+
     <!-- result box -->
     <div class="result_box">
-        <div class="icon">
-            <i class="fas fa-crown"></i>
-        </div>
-        <div class="complete_text">You've completed the Quiz!</div>
-        <div class="score_text">
-            
-        </div>
-        <div class="buttons">
-            <button class="restart">Replay Quiz</button>
-            <button class="quit">Quit Quiz</button>
-        </div>
+      <div class="icon">
+        <i class="fas fa-crown"></i>
+      </div>
+      <div class="complete_text">You've completed the Quiz!</div>
+      <div class="score_text"></div>
+      <div class="buttons">
+        <button class="restart">Replay</button>
+        <button class="quit">Quit</button>
+      </div>
     </div>
+
     <footer>
-        <div class="foma">
-            All rights reserved &copy; 2024, fomacodes.
-        </div>
+      <div class="foma">
+        All rights reserved &copy; <span id="year"></span> fomacodes.
+      </div>
     </footer>
-    <script src="./script.js"></script>
-    <script src="./questions.js"></script>
-</body>
+
+    <script src="./js/toast.js"></script>
+    <script src="./js/questions.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/getYear.js"></script>
+  </body>
 </html>
